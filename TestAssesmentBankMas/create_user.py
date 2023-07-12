@@ -1,5 +1,3 @@
-Feature: Create Price Tiers Bulk
-
 Feature: Create User
 
     Background:
@@ -17,6 +15,6 @@ Feature: Create User
     When method POST
     When call read (createfeature) createparameters
   
-    Then match createresponse == 201
+    Then match responseStatus = 201
   
     And match response == createresponse
