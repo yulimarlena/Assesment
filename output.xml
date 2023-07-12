@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1 (Python 3.11.4 on win32)" generated="20230712 17:25:45.272" rpa="false" schemaversion="4">
+<suite id="s1" name="Menambahkan" source="c:\Users\JOE PC\Documents\GitHub\automationcoba\testassesmentknockoutjs\menambahkan.robot">
+<test id="s1-t1" name="... Cases A) Menambahkan to-do item" line="74">
+<kw name="Navigate To Knockout.js • TodoMVC">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${Host}</arg>
+<arg>browser=chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230712 17:25:45.483" level="INFO">Opening browser 'chrome' to base url 'https://todomvc.com/examples/knockoutjs/'.</msg>
+<msg timestamp="20230712 17:25:45.485" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<msg timestamp="20230712 17:25:45.485" level="FAIL">TypeError: WebDriver.__init__() got an unexpected keyword argument 'service_log_path'</msg>
+<status status="FAIL" starttime="20230712 17:25:45.483" endtime="20230712 17:25:45.488"/>
+</kw>
+<status status="FAIL" starttime="20230712 17:25:45.482" endtime="20230712 17:25:45.489"/>
+</kw>
+<kw name="Verify Page Title Contains Knockout.js • TodoMVC">
+<status status="NOT RUN" starttime="20230712 17:25:45.489" endtime="20230712 17:25:45.489"/>
+</kw>
+<kw name="Add to-do item list">
+<status status="NOT RUN" starttime="20230712 17:25:45.490" endtime="20230712 17:25:45.490"/>
+</kw>
+<kw name="For Looping add to-do item list">
+<status status="NOT RUN" starttime="20230712 17:25:45.490" endtime="20230712 17:25:45.490"/>
+</kw>
+<status status="FAIL" starttime="20230712 17:25:45.482" endtime="20230712 17:25:45.490">TypeError: WebDriver.__init__() got an unexpected keyword argument 'service_log_path'</status>
+</test>
+<test id="s1-t2" name="... Cases B) Menyelesaikan to-do item" line="79">
+<kw name="Done random click toggle task to-do item">
+<kw name="Generate Random String" library="String">
+<var>${RandomGenerateToggle}</var>
+<arg>1</arg>
+<arg>12345</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<msg timestamp="20230712 17:25:45.493" level="INFO">${RandomGenerateToggle} = 3</msg>
+<status status="PASS" starttime="20230712 17:25:45.493" endtime="20230712 17:25:45.494"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${ClikaRandomToggle}</var>
+<arg>${RandomGenerateToggle}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20230712 17:25:45.494" level="INFO">${ClikaRandomToggle} = 3</msg>
+<status status="PASS" starttime="20230712 17:25:45.494" endtime="20230712 17:25:45.495"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=(//input[@class='toggle'])[${ClikaRandomToggle}]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230712 17:25:45.496" level="INFO">Clicking element 'xpath=(//input[@class='toggle'])[3]'.</msg>
+<msg timestamp="20230712 17:25:45.496" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<msg timestamp="20230712 17:25:45.496" level="FAIL">No browser is open.</msg>
+<status status="FAIL" starttime="20230712 17:25:45.495" endtime="20230712 17:25:45.501"/>
+</kw>
+<status status="FAIL" starttime="20230712 17:25:45.493" endtime="20230712 17:25:45.501"/>
+</kw>
+<status status="FAIL" starttime="20230712 17:25:45.492" endtime="20230712 17:25:45.502">No browser is open.</status>
+</test>
+<test id="s1-t3" name="... Cases C) Filter to-do item" line="81">
+<kw name="Filter to-do item All list">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=//a[contains(text(),'All')]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<msg timestamp="20230712 17:25:45.504" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<msg timestamp="20230712 17:25:45.504" level="FAIL">No browser is open.</msg>
+<status status="FAIL" starttime="20230712 17:25:45.504" endtime="20230712 17:25:45.506"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//a[contains(text(),'All')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230712 17:25:45.506" endtime="20230712 17:25:45.506"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>Meeting With Project Mananger</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230712 17:25:45.506" endtime="20230712 17:25:45.506"/>
+</kw>
+<for flavor="IN">
+<var>${MyItem}</var>
+<value>@{ITEMS}</value>
+<iter>
+<var name="${MyItem}"/>
+<kw name="Log" library="BuiltIn">
+<arg>${MyItem}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20230712 17:25:45.507" endtime="20230712 17:25:45.507"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>${MyItem}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230712 17:25:45.507" endtime="20230712 17:25:45.507"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>"${MyItem}" == "Verif KTP"</arg>
+<arg>Exit For Loop</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" starttime="20230712 17:25:45.507" endtime="20230712 17:25:45.507"/>
+</kw>
+<status status="NOT RUN" starttime="20230712 17:25:45.506" endtime="20230712 17:25:45.507"/>
+</iter>
+<status status="NOT RUN" starttime="20230712 17:25:45.506" endtime="20230712 17:25:45.508"/>
+</for>
+<status status="FAIL" starttime="20230712 17:25:45.503" endtime="20230712 17:25:45.508"/>
+</kw>
+<kw name="Filter to-do item Active list">
+<status status="NOT RUN" starttime="20230712 17:25:45.508" endtime="20230712 17:25:45.508"/>
+</kw>
+<status status="FAIL" starttime="20230712 17:25:45.503" endtime="20230712 17:25:45.509">No browser is open.</status>
+</test>
+<test id="s1-t4" name="... Cases D) Hapus t0-do item" line="84">
+<kw name="Filter to-do item Complete and Clear Complete list">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=//a[contains(text(),'Completed')]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<msg timestamp="20230712 17:25:45.513" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<msg timestamp="20230712 17:25:45.513" level="FAIL">No browser is open.</msg>
+<status status="FAIL" starttime="20230712 17:25:45.512" endtime="20230712 17:25:45.514"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//a[contains(text(),'Completed')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230712 17:25:45.514" endtime="20230712 17:25:45.514"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//a[contains(text(),'All')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230712 17:25:45.514" endtime="20230712 17:25:45.514"/>
+</kw>
+<kw name="Generate Random String" library="String">
+<var>${RandomGenerateToggle}</var>
+<arg>1</arg>
+<arg>1234</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="NOT RUN" starttime="20230712 17:25:45.514" endtime="20230712 17:25:45.515"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${ClikaRandomToggle}</var>
+<arg>${RandomGenerateToggle}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="NOT RUN" starttime="20230712 17:25:45.515" endtime="20230712 17:25:45.515"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=(//input[@class='toggle'])[${ClikaRandomToggle}]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230712 17:25:45.515" endtime="20230712 17:25:45.515"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//button[text()='Clear completed']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230712 17:25:45.515" endtime="20230712 17:25:45.516"/>
+</kw>
+<status status="FAIL" starttime="20230712 17:25:45.511" endtime="20230712 17:25:45.516"/>
+</kw>
+<kw name="Skip" library="BuiltIn">
+<arg>Element Delete Not Clicking 'X'</arg>
+<doc>Skips the rest of the current test.</doc>
+<status status="NOT RUN" starttime="20230712 17:25:45.516" endtime="20230712 17:25:45.517"/>
+</kw>
+<status status="FAIL" starttime="20230712 17:25:45.510" endtime="20230712 17:25:45.517">No browser is open.</status>
+</test>
+<doc>Technical Test to-do Item Bank Mas</doc>
+<status status="FAIL" starttime="20230712 17:25:45.275" endtime="20230712 17:25:45.519"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="4" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="4" skip="0" id="s1" name="Menambahkan">Menambahkan</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
